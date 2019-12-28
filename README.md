@@ -1,24 +1,19 @@
-# README
+# PET ADMIN
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Projeto construído durante o bootcamp do OneBitCode, de um sistema administrativo baseado em um petshop.
 
-Things you may want to cover:
+Utilização da gem [FAE](https://www.faecms.com/) para geração dos controles e páginas do sistema administrativo.
 
-* Ruby version
+* Projeto gerado a partir do docker
 
-* System dependencies
+`docker run -it --rm --user "$(id -u):$(id -g)" -v "$PWD":/usr/src/app -w /usr/src/app rails rails _5.0.1_ new --skip-bundle petadmin --database=postgresql`
 
-* Configuration
+* Para *buildar*
 
-* Database creation
+`docker-compose build`
 
-* Database initialization
+* Para ver funcionando
 
-* How to run the test suite
+`docker-compose up`
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Acesse: http://localhost:3000
