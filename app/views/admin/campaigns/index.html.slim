@@ -12,7 +12,7 @@ main.content
       - if @items.present?
         - @items.each do |item|
           tr id=fae_sort_id(item)
-            td = link_to item.fae_display_field, edit_admin_campaign_path(item)
+            td = item.title
             td = fae_date_format item.updated_at
             td = fae_delete_button item
       - else
