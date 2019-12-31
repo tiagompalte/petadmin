@@ -3,5 +3,8 @@
 
   main.content
     = fae_input f, :title
-    = fae_prefix f, :value, prefix: '$', placeholder: '50.00'
-
+    - if @item.kind == "dinheiro"
+      = fae_prefix f, :value, prefix: '$', placeholder: '50.00'
+    - else
+      = fae_suffix f, :value, suffix: '%'
+    = fae_pulldown f, :kind, size: 'long', collection: Discount.kinds.to_a, selected: Discount.kinds[@item.kind]
