@@ -1,0 +1,10 @@
+= simple_form_for(['admin', @item]) do |f|
+  == render 'fae/shared/form_header', header: @klass_name
+
+  main.content
+    = fae_association f, :client
+    = fae_datepicker f, :date_time, label: 'Date'
+    = fae_input f, :date_time, as: :time, label: 'Time'
+    = fae_association f, :services
+    = fae_pulldown f, :status, size: 'long', collection: Scheduling.statuses.to_a, selected: Scheduling.statuses[@item.status]
+    = fae_input f, :observations

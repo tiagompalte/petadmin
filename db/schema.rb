@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191229225626) do
+ActiveRecord::Schema.define(version: 20191231103722) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -220,6 +220,25 @@ ActiveRecord::Schema.define(version: 20191229225626) do
     t.index ["supplier_id"], name: "index_products_on_supplier_id", using: :btree
   end
 
+  create_table "scheduling_services", force: :cascade do |t|
+    t.integer  "scheduling_id"
+    t.integer  "service_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["scheduling_id"], name: "index_scheduling_services_on_scheduling_id", using: :btree
+    t.index ["service_id"], name: "index_scheduling_services_on_service_id", using: :btree
+  end
+
+  create_table "schedulings", force: :cascade do |t|
+    t.datetime "date_time"
+    t.integer  "client_id"
+    t.text     "observations"
+    t.integer  "status"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["client_id"], name: "index_schedulings_on_client_id", using: :btree
+  end
+
   create_table "sell_products", force: :cascade do |t|
     t.integer  "product_id"
     t.integer  "sell_id"
@@ -273,6 +292,9 @@ ActiveRecord::Schema.define(version: 20191229225626) do
   add_foreign_key "campaign_clients", "campaigns"
   add_foreign_key "campaign_clients", "clients"
   add_foreign_key "products", "suppliers"
+  add_foreign_key "scheduling_services", "schedulings"
+  add_foreign_key "scheduling_services", "services"
+  add_foreign_key "schedulings", "clients"
   add_foreign_key "sell_products", "products"
   add_foreign_key "sell_products", "sells"
   add_foreign_key "sell_services", "sells"

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date_time: 2019-12-31 10:37:01
+  client: one
+  observations: MyText
+  status: 1
+
+two:
+  date_time: 2019-12-31 10:37:01
+  client: two
+  observations: MyText
+  status: 1
